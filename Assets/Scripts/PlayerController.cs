@@ -1,14 +1,11 @@
 ﻿using UnityEngine;
+using Movement;
 
 public class PlayerController : MonoBehaviour {
 
     public float speed;
-
-	// Use this for initialization
-	void Start () {
+    public Boundary boundary;
 		
-	}
-	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey("a"))
@@ -20,5 +17,12 @@ public class PlayerController : MonoBehaviour {
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
+
+        transform.position = new Vector3
+        {
+            x = Mathf.Clamp(transform.position.x, boundary.xMin, boundary.xMax),
+            y = transform.position.y,
+            z = transform.position.z
+        };
     }
 }

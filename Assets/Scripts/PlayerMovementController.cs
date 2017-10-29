@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Movement;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerMovementController : MonoBehaviour {
 
     public float speed;
     public Boundary boundary;

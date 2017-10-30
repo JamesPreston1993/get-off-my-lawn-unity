@@ -33,10 +33,15 @@ public class EnemySpawner : MonoBehaviour
             Vector3 position = new Vector3
             {
                 x = Random.Range(xMin, xMax),
-                y = transform.position.y,
+                y = 0.01f,
                 z = transform.position.z
             };
-            Instantiate(enemy, position, Quaternion.identity);
+            Instantiate(enemy, position, new Quaternion
+            {
+                x = 0.0f,
+                y = 180.0f,
+                z = 0.0f
+            });
         }
     }
 }

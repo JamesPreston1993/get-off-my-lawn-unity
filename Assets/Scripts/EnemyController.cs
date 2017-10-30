@@ -3,7 +3,7 @@
 public class EnemyController : MonoBehaviour
 {
     public float speed;
-    public float score;
+    public int score;
 
     private GameController gameController;
 
@@ -25,13 +25,13 @@ public class EnemyController : MonoBehaviour
     {
         if (!gameController.IsGameOver())
         {
-            transform.Translate(Vector3.back * speed * Time.deltaTime);
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
     }
 
     void OnDestroy()
     {
-        gameController.AddToScore(10);
+        gameController.AddToScore(score);
     }
 
     void OnTriggerEnter(Collider other)

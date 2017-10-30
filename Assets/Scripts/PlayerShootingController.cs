@@ -35,7 +35,7 @@ public class PlayerShootingController : MonoBehaviour
             Instantiate(shot, new Vector3
             {
                 x = transform.position.x,
-                y = transform.position.y,
+                y = 1.0f,
                 z = transform.position.z + 2
             }, Quaternion.identity);
         }

@@ -136,10 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12801a5d2548ff44faae287efc09c049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1909847560186428, guid: 195316d1d30e97c449a3f7d28478915d, type: 2}
-  spawnRate: 3
-  xMin: -7
-  xMax: 7
+  enemy: {fileID: 1436023964840390, guid: 0daadf029db9e6a4aa4bf28e1cc6e535, type: 2}
+  spawnRate: 2
+  xMin: -6.5
+  xMax: 6.5
 --- !u!4 &160179147
 Transform:
   m_ObjectHideFlags: 0
@@ -1327,6 +1327,11 @@ Prefab:
     - target: {fileID: 4431306772388074, guid: 841b9db689ea2af4b859a8cad0eb961f, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 23140891849176116, guid: 841b9db689ea2af4b859a8cad0eb961f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 841b9db689ea2af4b859a8cad0eb961f, type: 2}

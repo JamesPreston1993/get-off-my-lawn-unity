@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -9,9 +10,12 @@ public class GameController : MonoBehaviour
     public GameObject gameOverPanel;
     private bool gameOver;
 
+    public Button restartButton;
+
     void Start()
     {
-        UpdateScore();   
+        UpdateScore();
+        restartButton.onClick.AddListener(RestartGame);
     }
 
     public void AddToScore(int newScore)
@@ -34,5 +38,10 @@ public class GameController : MonoBehaviour
     public bool IsGameOver()
     {
         return gameOver;
+    }
+
+    void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

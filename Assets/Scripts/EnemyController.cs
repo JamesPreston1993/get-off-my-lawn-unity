@@ -32,4 +32,12 @@ public class EnemyController : MonoBehaviour
     {
         gameController.AddToScore(10);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Flowers")
+        {
+            gameController.SetGameOver(true);
+        }
+    }
 }

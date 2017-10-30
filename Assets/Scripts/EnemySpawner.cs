@@ -8,11 +8,25 @@ public class EnemySpawner : MonoBehaviour
     public float xMax;
 
     private float nextSpawn;
+    private GameController gameController;
 
-    // Update is called once per frame
+    void Start()
+    {
+        GameObject parentGameObject = GameObject.FindGameObjectWithTag("GameController");
+        if (parentGameObject != null)
+        {
+            gameController = parentGameObject.GetComponent<GameController>();
+        }
+
+        if (gameController == null)
+        {
+            Debug.Log("GameController not found");
+        }
+    }
+
     void Update()
     {
-        if (Time.time > nextSpawn)
+        if (!gameController.IsGameOver() && Time.time > nextSpawn)
         {
             nextSpawn = Time.time + spawnRate;
 

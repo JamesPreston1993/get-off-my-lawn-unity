@@ -25,7 +25,10 @@ public class EnemyController : MonoBehaviour
 
     void Update ()
     {
-		transform.Translate(Vector3.back * speed * Time.deltaTime);
+        if (!gameController.IsGameOver())
+        {
+            transform.Translate(Vector3.back * speed * Time.deltaTime);
+        }
     }
 
     void OnDestroy()

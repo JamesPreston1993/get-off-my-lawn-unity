@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
 
             Vector3 position = new Vector3
             {
-                x = Random.Range(-1 * xMax, xMax),
+                x = Random.Range(xMin, xMax),
                 y = transform.position.y,
                 z = transform.position.z
             };

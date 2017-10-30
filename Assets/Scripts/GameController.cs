@@ -13,13 +13,13 @@ public class GameController : MonoBehaviour
         UpdateScore();   
     }
 
-    void AddToScore(int newScore)
+    public void AddToScore(int newScore)
     {
         score += newScore;
         UpdateScore();
     }
 
-    void UpdateScore()
+    public void UpdateScore()
     {        
         scoreText.text = "Score: " + score;
     }

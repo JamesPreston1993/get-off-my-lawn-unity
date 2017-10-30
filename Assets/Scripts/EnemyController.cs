@@ -5,9 +5,31 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public float speed;
-	
-    // Update is called once per frame
-	void Update () {
+    public float score;
+
+    private GameController gameController;
+
+    void Start()
+    {
+        GameObject parentGameObject = GameObject.FindGameObjectWithTag("GameController");
+        if (parentGameObject != null)
+        {
+            gameController = parentGameObject.GetComponent<GameController>();
+        }
+
+        if (gameController ==  null)
+        {
+            Debug.Log("GameController not found");
+        }
+    }
+
+    void Update ()
+    {
 		transform.Translate(Vector3.back * speed * Time.deltaTime);
+    }
+
+    void OnDestroy()
+    {
+        gameController.AddToScore(10);
     }
 }

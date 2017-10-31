@@ -110,6 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c013230b586788f458a23cdeba57fe15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterSplash: {fileID: 1859198161325408, guid: 80bab87a71e4112459f7a603c6f804d7,
+    type: 2}
 --- !u!114 &114389654353557742
 MonoBehaviour:
   m_ObjectHideFlags: 1

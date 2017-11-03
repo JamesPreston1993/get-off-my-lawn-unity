@@ -11,11 +11,13 @@ public class GameController : MonoBehaviour
     private bool gameOver;
 
     public Button restartButton;
+    public Button backToMenuButton;
 
     void Start()
     {
         UpdateScore();
         restartButton.onClick.AddListener(RestartGame);
+        backToMenuButton.onClick.AddListener(BackToMenu);
     }
 
     public void AddToScore(int newScore)
@@ -43,5 +45,10 @@ public class GameController : MonoBehaviour
     void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void BackToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

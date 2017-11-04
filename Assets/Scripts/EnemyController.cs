@@ -7,9 +7,11 @@ public class EnemyController : MonoBehaviour
     public int health;
 
     private GameController gameController;
+    private float initialSpeed;
 
     void Start()
     {
+        initialSpeed = speed;
         GameObject parentGameObject = GameObject.FindGameObjectWithTag("GameController");
         if (parentGameObject != null)
         {
@@ -40,6 +42,22 @@ public class EnemyController : MonoBehaviour
         if (other.tag == "Flowers")
         {
             gameController.SetGameOver(true);
+        }
+
+        if (other.tag == "Enemy")
+        {
+            if (other.gameObject.transform.position.z < gameObject.transform.position.z)
+            {
+                speed = 0;
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            speed = initialSpeed;
         }
     }
 }

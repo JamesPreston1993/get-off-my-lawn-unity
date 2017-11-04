@@ -2,7 +2,9 @@
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemy;
+    public GameObject neighbour;
+    public GameObject salesman;
+
     public SpawnRateModel spawnRate;
     public float xMin;
     public float xMax;
@@ -42,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
                     y = 0.01f,
                     z = transform.position.z
                 };
-                Instantiate(enemy, position, new Quaternion
+                Instantiate(neighbour, position, new Quaternion
                 {
                     x = 0.0f,
                     y = 180.0f,

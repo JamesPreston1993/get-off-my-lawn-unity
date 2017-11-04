@@ -1331,7 +1331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12801a5d2548ff44faae287efc09c049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1391871203913314, guid: 8c34075fab570734dba2bad1b4d750d5, type: 2}
+  neighbour: {fileID: 1391871203913314, guid: 8c34075fab570734dba2bad1b4d750d5, type: 2}
+  salesman: {fileID: 1008832393903128, guid: ceabbcf6ecb8a1342a2fc321ec9a92be, type: 2}
   spawnRate:
     initialRate: 3
     updateInterval: 10

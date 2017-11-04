@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
     {
         if (scoreText != null)
         {
-            scoreText.text = "Score: " + score;
+            scoreText.text = score.ToString();
         }
     }
 

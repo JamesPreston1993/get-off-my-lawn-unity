@@ -339,7 +339,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: The annoying neighbours and travelling salesman are trying to visit you
+  m_Text: The annoying neighbours and travelling salesmen are trying to visit you
     after you've just finished watering your beloved flowers.
 --- !u!222 &277859969
 CanvasRenderer:
@@ -414,7 +414,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Protect your garden by shooting water at your neighbours to scare them away!
+  m_Text: 'Protect your garden by shooting water at them to keep
+
+    them away!'
 --- !u!222 &317186367
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1476,7 +1478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1447044058
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1621,7 +1623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1665328754
 RectTransform:
   m_ObjectHideFlags: 0

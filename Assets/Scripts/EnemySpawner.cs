@@ -49,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
                     z = 0.0f
                 });
             }
-            if (Time.time > nextIntervalUpdate && currentSpawnRate >= 1)
+            if (Time.time > nextIntervalUpdate && currentSpawnRate >= 1.5)
             {
                 nextIntervalUpdate = Time.time + spawnRate.updateInterval;
                 currentSpawnRate -= spawnRate.updateAmount;

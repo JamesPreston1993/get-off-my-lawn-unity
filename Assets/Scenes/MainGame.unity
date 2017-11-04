@@ -1332,9 +1332,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1391871203913314, guid: 8c34075fab570734dba2bad1b4d750d5, type: 2}
-  initialSpawnRate: 3
-  spawnRateUpdateInterval: 10
-  spawnRateAmount: 0.5
+  spawnRate:
+    initialRate: 3
+    updateInterval: 10
+    updateAmount: 0.25
   xMin: -6
   xMax: 6
 --- !u!1001 &876228270

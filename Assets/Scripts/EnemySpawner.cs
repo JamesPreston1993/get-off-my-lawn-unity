@@ -45,16 +45,10 @@ public class EnemySpawner : MonoBehaviour
             {
                 nextSpawn = Time.time + currentSpawnRate;
 
-                float randomNum = Random.value;
-                GameObject enemy;
-                if (randomNum < neighbourChance)
-                {
-                    enemy = neighbour;
-                }
-                else
-                {
-                    enemy = salesman;
-                }
+                float randomNum = Mathf.Round(Random.value * 10f) / 10f;
+                GameObject enemy = randomNum <= neighbourChance
+                    ? neighbour
+                    : salesman;
 
                 Vector3 position = new Vector3
                 {

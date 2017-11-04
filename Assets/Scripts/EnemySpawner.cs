@@ -4,6 +4,8 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject neighbour;
     public GameObject salesman;
+    public float neighbourChance;
+    public float salesmanChance;
 
     public SpawnRateModel spawnRate;
     public float xMin;
@@ -16,6 +18,11 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        if (neighbourChance + salesmanChance != 1.0)
+        {
+            Debug.Log("Spawn chances must total to 1.0");
+        }
+
         currentSpawnRate = spawnRate.initialRate;
         nextIntervalUpdate =spawnRate.updateInterval;
         GameObject parentGameObject = GameObject.FindGameObjectWithTag("GameController");
@@ -38,13 +45,24 @@ public class EnemySpawner : MonoBehaviour
             {
                 nextSpawn = Time.time + currentSpawnRate;
 
+                float randomNum = Random.value;
+                GameObject enemy;
+                if (randomNum < neighbourChance)
+                {
+                    enemy = neighbour;
+                }
+                else
+                {
+                    enemy = salesman;
+                }
+
                 Vector3 position = new Vector3
                 {
                     x = Random.Range(xMin, xMax),
                     y = 0.01f,
                     z = transform.position.z
                 };
-                Instantiate(neighbour, position, new Quaternion
+                Instantiate(enemy, position, new Quaternion
                 {
                     x = 0.0f,
                     y = 180.0f,

@@ -35,6 +35,18 @@ public class EnemyController : MonoBehaviour
     void OnDestroy()
     {
         gameController.AddToScore(score);
+
+        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        Vector3 enemyPosition = gameObject.transform.position;
+        foreach(GameObject enemy in enemies)
+        {
+            Vector3 otherPosition = enemy.transform.position;
+            if (otherPosition.z > enemyPosition.z)
+            {
+                enemy.GetComponent<EnemyController>().ResetSpeed();
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -57,7 +69,15 @@ public class EnemyController : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            speed = initialSpeed;
+            if (other.gameObject.transform.position.z < gameObject.transform.position.z)
+            {
+                ResetSpeed();
+            }
         }
+    }
+
+    void ResetSpeed()
+    {
+        speed = initialSpeed;
     }
 }

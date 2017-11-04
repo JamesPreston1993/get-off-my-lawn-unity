@@ -27,8 +27,11 @@ public class GameController : MonoBehaviour
     }
 
     public void UpdateScore()
-    {        
-        scoreText.text = "Score: " + score;
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score;
+        }
     }
 
     public void SetGameOver(bool isGameOver)

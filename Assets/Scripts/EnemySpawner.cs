@@ -3,21 +3,19 @@
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
-    public float initialSpawnRate;
-    public float spawnRateUpdateInterval;
-    public float spawnRateAmount;
+    public SpawnRateModel spawnRate;
     public float xMin;
     public float xMax;
-
+    
     private float nextSpawn;
-    private float spawnRate;
+    private float currentSpawnRate;
     private float nextIntervalUpdate;
     private GameController gameController;
 
     void Start()
     {
-        spawnRate = initialSpawnRate;
-        nextIntervalUpdate = spawnRateUpdateInterval;
+        currentSpawnRate = spawnRate.initialRate;
+        nextIntervalUpdate =spawnRate.updateInterval;
         GameObject parentGameObject = GameObject.FindGameObjectWithTag("GameController");
         if (parentGameObject != null)
         {
@@ -36,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
         {
             if (Time.time > nextSpawn)
             {
-                nextSpawn = Time.time + spawnRate;
+                nextSpawn = Time.time + currentSpawnRate;
 
                 Vector3 position = new Vector3
                 {
@@ -51,11 +49,19 @@ public class EnemySpawner : MonoBehaviour
                     z = 0.0f
                 });
             }
-            if (Time.time > nextIntervalUpdate && spawnRate >= 1)
+            if (Time.time > nextIntervalUpdate && currentSpawnRate >= 1)
             {
-                nextIntervalUpdate = Time.time + spawnRateUpdateInterval;
-                spawnRate -= spawnRateAmount;
+                nextIntervalUpdate = Time.time + spawnRate.updateInterval;
+                currentSpawnRate -= spawnRate.updateAmount;
             }
         }
     }
+}
+
+[System.Serializable]
+public class SpawnRateModel
+{
+    public float initialRate;
+    public float updateInterval;
+    public float updateAmount;
 }

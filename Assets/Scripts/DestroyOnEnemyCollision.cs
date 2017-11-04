@@ -7,7 +7,14 @@ public class DestroyOnEnemyCollision : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            Destroy(other.gameObject);
+            var enemy = other.GetComponent<EnemyController>();
+            enemy.health--;
+
+            if (enemy.health == 0)
+            {
+                Destroy(other.gameObject);
+            }
+            
             Instantiate(waterSplash, other.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

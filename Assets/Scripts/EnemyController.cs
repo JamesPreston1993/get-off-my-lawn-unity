@@ -4,6 +4,7 @@ public class EnemyController : MonoBehaviour
 {
     public float speed;
     public int score;
+    public int health;
 
     private GameController gameController;
 

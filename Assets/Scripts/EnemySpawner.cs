@@ -4,8 +4,10 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject neighbour;
     public GameObject salesman;
+    public GameObject paperBoy;
     public float neighbourChance;
     public float salesmanChance;
+    public float paperBoyChance;
 
     public SpawnRateModel spawnRate;
     public float xMin;
@@ -18,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        if (neighbourChance + salesmanChance != 1.0)
+        if (neighbourChance + salesmanChance + paperBoyChance != 1.0)
         {
             Debug.Log("Spawn chances must total to 1.0");
         }
@@ -46,10 +48,21 @@ public class EnemySpawner : MonoBehaviour
                 nextSpawn = Time.time + currentSpawnRate;
 
                 float randomNum = Mathf.Round(Random.value * 10f) / 10f;
-                GameObject enemy = randomNum <= neighbourChance
-                    ? neighbour
-                    : salesman;
 
+                GameObject enemy;
+                if (randomNum <= neighbourChance)
+                {
+                    enemy = neighbour;
+                }
+                else if (randomNum <= neighbourChance + salesmanChance)
+                {
+                    enemy = salesman;
+                }
+                else
+                {
+                    enemy = paperBoy;
+                }
+                
                 Vector3 position = new Vector3
                 {
                     x = Random.Range(xMin, xMax),

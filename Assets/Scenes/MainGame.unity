@@ -1407,8 +1407,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbour: {fileID: 1391871203913314, guid: 8c34075fab570734dba2bad1b4d750d5, type: 2}
   salesman: {fileID: 1008832393903128, guid: ceabbcf6ecb8a1342a2fc321ec9a92be, type: 2}
-  neighbourChance: 0.7
-  salesmanChance: 0.3
+  paperBoy: {fileID: 1013442660342352, guid: 8d52d2515987de6498d816274b9ffb3f, type: 2}
+  neighbourChance: 0.5
+  salesmanChance: 0.2
+  paperBoyChance: 0.3
   spawnRate:
     initialRate: 3
     updateInterval: 10

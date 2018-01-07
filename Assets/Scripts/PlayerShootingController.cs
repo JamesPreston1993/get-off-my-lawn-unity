@@ -29,7 +29,7 @@ public class PlayerShootingController : MonoBehaviour
             return;
         }
 
-		if (Input.GetKey(KeyCode.Space) && Time.time > nextShot)
+		if (Input.GetButton("Fire1") && Time.time > nextShot)
         {
             nextShot = Time.time + shootRate;
             Instantiate(shot, new Vector3

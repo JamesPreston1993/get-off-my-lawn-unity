@@ -16,11 +16,12 @@ public class EnemySpawner : MonoBehaviour
     private float nextSpawn;
     private float currentSpawnRate;
     private float nextIntervalUpdate;
+    private int spawnCounter;
     private GameController gameController;
 
     void Start()
     {
-        if (neighbourChance + salesmanChance + paperBoyChance != 1.0)
+        if ((float) neighbourChance + salesmanChance + paperBoyChance != 1.0)
         {
             Debug.Log("Spawn chances must total to 1.0");
         }
@@ -46,21 +47,16 @@ public class EnemySpawner : MonoBehaviour
             if (Time.time > nextSpawn)
             {
                 nextSpawn = Time.time + currentSpawnRate;
-
-                float randomNum = Mathf.Round(Random.value * 10f) / 10f;
+                spawnCounter++;
 
                 GameObject enemy;
-                if (randomNum <= neighbourChance)
+                if (spawnCounter <= 10)
                 {
                     enemy = neighbour;
                 }
-                else if (randomNum <= neighbourChance + salesmanChance)
-                {
-                    enemy = salesman;
-                }
                 else
                 {
-                    enemy = paperBoy;
+                    enemy = SpawnRandomEnemy();
                 }
                 
                 Vector3 position = new Vector3
@@ -81,6 +77,23 @@ public class EnemySpawner : MonoBehaviour
                 nextIntervalUpdate = Time.time + spawnRate.updateInterval;
                 currentSpawnRate -= spawnRate.updateAmount;
             }
+        }
+    }
+
+    private GameObject SpawnRandomEnemy()
+    {
+        float randomNum = Mathf.Round(Random.value * 10f) / 10f;
+        if (randomNum <= neighbourChance)
+        {
+            return neighbour;
+        }
+        else if (randomNum <= neighbourChance + salesmanChance)
+        {
+            return salesman;
+        }
+        else
+        {
+            return paperBoy;
         }
     }
 }

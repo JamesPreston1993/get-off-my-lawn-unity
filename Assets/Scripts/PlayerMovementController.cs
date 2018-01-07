@@ -29,16 +29,7 @@ public class PlayerMovementController : MonoBehaviour
             return;
         }
 
-        if (Input.GetKey("a"))
-        {
-            transform.Translate(Vector3.left * speed * Time.deltaTime);
-        }
-
-        if (Input.GetKey("d"))
-        {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
-        }
-
+        transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, 0);
         transform.position = new Vector3
         {
             x = Mathf.Clamp(transform.position.x, boundary.xMin, boundary.xMax),

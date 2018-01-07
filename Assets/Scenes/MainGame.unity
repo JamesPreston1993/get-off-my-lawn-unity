@@ -1412,7 +1412,7 @@ MonoBehaviour:
   salesmanChance: 0.2
   paperBoyChance: 0.3
   spawnRate:
-    initialRate: 3
+    initialRate: 2
     updateInterval: 10
     updateAmount: 0.25
   xMin: -6

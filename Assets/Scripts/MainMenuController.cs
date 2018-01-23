@@ -16,9 +16,17 @@ public class MainMenuController : MonoBehaviour
     void Start ()
     {
         playButton.onClick.AddListener(PlayGame);
-        quitButton.onClick.AddListener(QuitGame);
         howToButton.onClick.AddListener(ShowHowToMenu);
         backButton.onClick.AddListener(BackToMainMenu);
+
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            quitButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            quitButton.onClick.AddListener(QuitGame);
+        }
     }
 
     void PlayGame()

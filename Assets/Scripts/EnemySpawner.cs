@@ -49,28 +49,7 @@ public class EnemySpawner : MonoBehaviour
                 nextSpawn = Time.time + currentSpawnRate;
                 spawnCounter++;
 
-                GameObject enemy;
-                if (spawnCounter <= 10)
-                {
-                    enemy = neighbour;
-                }
-                else
-                {
-                    enemy = SpawnRandomEnemy();
-                }
-                
-                Vector3 position = new Vector3
-                {
-                    x = Random.Range(xMin, xMax),
-                    y = 0.01f,
-                    z = transform.position.z
-                };
-                Instantiate(enemy, position, new Quaternion
-                {
-                    x = 0.0f,
-                    y = 180.0f,
-                    z = 0.0f
-                });
+                SpawnEnemy();
             }
             if (Time.time > nextIntervalUpdate && currentSpawnRate >= 1.5)
             {
@@ -80,21 +59,44 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private GameObject SpawnRandomEnemy()
+    private void SpawnEnemy()
     {
+        var position = new Vector3
+        {
+            x = Random.Range(xMin, xMax),
+            y = 0.01f,
+            z = transform.position.z
+        };
+
+        var rotation = new Quaternion
+        {
+            x = 0.0f,
+            y = 180.0f,
+            z = 0.0f
+        };
+
+        if (spawnCounter <= 10)
+        {
+            Instantiate(neighbour, position, rotation);
+            return;
+        }
+
         float randomNum = Mathf.Round(Random.value * 10f) / 10f;
         if (randomNum <= neighbourChance)
         {
-            return neighbour;
+            Instantiate(neighbour, position, rotation);
+            return;
         }
-        else if (randomNum <= neighbourChance + salesmanChance)
+
+        if (randomNum <= neighbourChance + salesmanChance)
         {
-            return salesman;
+            Instantiate(salesman, position, rotation);
+            return;
         }
-        else
-        {
-            return paperBoy;
-        }
+
+
+        position.x = Random.Range(-1.0f, 1.0f);
+        Instantiate(paperBoy, position, rotation);
     }
 }
 
